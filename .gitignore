@@ -1,0 +1,35 @@
+# build output
+dist/
+
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+package-lock.json
+src/assets/Arrow.png
+src/assets/background.svg
+src/assets/Bag.svg
+src/assets/double_arrow_right.svg
+src/assets/game_map.jpg
+src/assets/Landing.jpg
+src/assets/Square_line.svg
+src/assets/Square_square.svg
+src/assets/Square_x.svg
+package-lock.json

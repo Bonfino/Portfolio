@@ -1,0 +1,14 @@
+.nav-p{
+    margin-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.nav-p:last-child {
+    margin-right: 0;
+    padding-right: 15px;
+}
+
+.nav-p:first-child{
+    padding-left: 15px;
+}

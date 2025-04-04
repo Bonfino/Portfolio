@@ -1,0 +1,23 @@
+---
+import { Image } from "astro:assets";
+import Arrow from "./src/assets/Arrow.png";
+---
+
+<div class="flex flex-col items-center mt-[200px]">
+  <h1
+    class="text-8xl font-medium text-white"
+    style="text-shadow:3px 3px 6px rgba(0, 0, 0, 2);"
+  >
+    Alessio Pinto
+  </h1>
+  <p class="text-white text-[25px]">Software dev and QA tester</p>
+  <div class="flex flex-col items-center mt-[170px]">
+    <p class="text-white text-[40px]">Scroll down to start</p>
+    <Image
+      class="mt-[30px] animate-bounce"
+      src={Arrow}
+      alt="Arrow"
+      loading="eager"
+    />
+  </div>
+</div>

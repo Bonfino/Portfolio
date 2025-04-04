@@ -1,0 +1,32 @@
+.slide-right-arrow {
+  animation: slideArrow 0.5s infinite alternate ease-in-out;
+}
+
+@keyframes slideArrow {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(10px);
+  }
+}
+
+.slide-closed {
+  animation: slideClose 0.5s forwards;
+}
+
+@keyframes slideClose {
+  from {
+    transform: translate(0%);
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+.click-container {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  pointer-events: auto;
+}

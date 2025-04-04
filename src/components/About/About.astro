@@ -1,0 +1,11 @@
+---
+import Bar from "./Bar.astro";
+import Window from "./Window.jsx";
+---
+
+<div class="flex justify-center mt-[320px]">
+  <div class="w-[1000px] h-[500px] bg-[#8199D0] shadow-[8px_8px_0px_#000]">
+    <Bar />
+    <Window client:load/>
+  </div>
+</div>

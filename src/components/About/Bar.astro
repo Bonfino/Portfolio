@@ -1,0 +1,21 @@
+---
+import note_image from "/src/assets/Bag.svg";
+import line from "/src/assets/Square_line.svg";
+import square from "/src/assets/Square_square.svg";
+import cross from "/src/assets/Square_x.svg";
+import { Image } from "astro:assets";
+---
+
+<div
+  class="flex items-center justify-between mt-[20px] mx-[20px] py-[12px] rounded-xl bg-[#D9D9D9]"
+>
+  <div class="flex">
+    <Image class="ml-[25px] w-[30px] h-[30px]" src={note_image} alt="Notepad" />
+    <p class="font-medium text-2xl ml-[25px]">About me.txt</p>
+  </div>
+  <div class="flex flex-row mr-[13px]">
+    <Image class="mx-[5px]" src={line} alt="line" />
+    <Image class="mx-[5px]" src={square} alt="square" />
+    <Image class="mx-[5px]" src={cross} alt="cross" />
+  </div>
+</div>
