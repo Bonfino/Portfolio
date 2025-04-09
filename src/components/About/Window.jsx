@@ -1,61 +1,53 @@
 import { useState, useEffect } from "react";
 import arrows from "/src/assets/double_arrow_right.svg";
-import gameMap from "/src/assets/game_map.jpg";
+import GameMap from "/src/assets/background_clouds.png";
 import Coin from "/src/assets/Coin.png";
+import QuestionBlock from "/src/assets/question_block.png";
+import UsedBlock from "/src/assets/used_block.png";
 import "./Window.css";
 
 export default function Window() {
   const [isClicked, setIsClicked] = useState(false);
-  const [showImage, setShowImage] = useState(false);
-  const [showCoins, setShowCoins] = useState(false);
+  const [showCoin, setShowCoin] = useState(false);
+  const [showBlock, setShowBlock] = useState(false);
 
   const handleClick = () => {
     setIsClicked(true);
+    setShowBlock(true);
   };
 
-  const coinPositions = [
-    { id: 1, top: "50px", left: "180px" },
-    { id: 2, top: "48px", left: "373px" },
-    { id: 3, top: "180px", left: "235px" },
-    { id: 4, top: "252px", left: "328px" },
-  ];
-
-  const CoinMarker = ({ top, left }) => (
-    <div
-      className="absolute z-10 w-[25px] h-[25px] fade-in"
-      style={{ top, left }}
-    >
-      <img src={Coin.src} alt="Coin" className="w-full h-full" />
+  const Coins = ({ top, left }) => (
+    <div className="">
+      <img className="" src={Coin.src} alt="Coin" />
     </div>
   );
 
-  useEffect(() => {
-    if (isClicked) {
-      const timer1 = setTimeout(() => {
-        setShowImage(true);
+  const Blocks = ({ top, left }) => (
+    <div
+      className="w-[70px] h-[70px]"
+      style={{ top: `${top}px`, left: `${left}px` }}
+    >
+      <img
+        src={QuestionBlock.src}
+        alt="Block"
+        loading="lazy"
+        className="w-full h-full"
+      />
+    </div>
+  );
 
-        const timer2 = setTimeout(() => {
-          setShowCoins(true);
-        }, 500);
-
-        return () => {
-          clearTimeout(timer1);
-          clearTimeout(timer2);
-        };
-      }, 350);
-
-      return () => clearTimeout(timer1);
-    } else {
-      setShowImage(false);
-      setShowCoins(false);
-    }
-  }, [isClicked]);
+  const BlocksPositions = [
+    { id: 1, top: 50, left: 50 },
+    { id: 2, top: 100, left: 100 },
+    { id: 3, top: 150, left: 150 },
+    { id: 4, top: 200, left: 200 },
+  ];
 
   return (
     <div className="flex justify-around items-center mt-[40px] relative">
       <div className="relative min-w-[730px] h-[340px] overflow-hidden">
         <div
-          className={`bg-[#1E1E1E] w-[730px] h-full border border-[#AEAEAE] border-5 flex items-center transition-all duration-500 ${
+          className={`bg-[#1E1E1E] w-[730px] h-full border border-[#AEAEAE] border-5 flex items-center ${
             isClicked ? "slide-closed" : ""
           }`}
         >
@@ -97,24 +89,27 @@ export default function Window() {
             isClicked ? "fade-out" : ""
           }`}
           src={arrows.src}
+          loading="lazy"
           alt="arrows"
         />
       </div>
 
-      {showImage && (
-        <div className="absolute top-0 left-0 w-full h-full flex justify-around">
-          <div className="relative">
+      {isClicked && (
+        <div className="absolute top-0 left-0 flex justify-around items-center w-full h-full">
+          <div className="relative w-[520px] h-[320px]">
             <img
-              className="transition-opacity duration-500 fade-in rounded-xl max-h-full max-w-full"
-              src={gameMap.src}
-              alt="gameMap"
+              className="size-full object-contain fade-in"
+              src={GameMap.src}
+              loading="lazy"
             />
-            {showCoins &&
-              coinPositions.map((coin) => (
-                <CoinMarker key={coin.id} top={coin.top} left={coin.left} />
-              ))}
+            <div className="absolute inset-0 z-10 fade-in">
+              {showBlock &&
+                BlocksPositions.map((block) => (
+                  <Blocks key={block.id} top={block.top} left={block.left} />
+                ))}
+            </div>
           </div>
-          <div className="transition-opacity duration-500 fade-in border-3 border-[#AEAEAE] bg-[#1E1E1E] w-[350px] text-white">
+          <div className="fade-in border-3 border-[#AEAEAE] bg-[#1E1E1E] w-[350px] h-[350px] text-white">
             test
           </div>
         </div>
